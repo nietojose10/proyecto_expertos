@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Estudiantes</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/custom.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<!--<script defer src="js/fontawesome-all.js" crossorigin="anonymous"></script>-->
+	<link href="css/web-fonts-with-css/css/fontawesome-all.css" rel="stylesheet">
+</head>
+<body>
+
+	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-prima ">
+	  <a class="navbar-brand" href="index.html">UNAH</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent" style="padding-left: 50%;">
+	    <ul class="navbar-nav mr-auto ">
+	      <li class="nav-item active">
+	        <a class="nav-link" href="#">Admiciones<span class="sr-only"></span></a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="estudiantes.html">Estudiantes</a>
+	      </li>
+	      <li class="nav-item dropdown">
+	        <a class="nav-link" href="#" >
+	          Administracion
+	        </a>
+	      
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link " href="#">Docentes e Instructores</a>
+	      </li>
+	    </ul>    
+	  </div>
+	</nav>
+
+
+	<h2 class="titulo-inicio-sesion"><strong>Iniciar Sesion</strong></h2>
+
+<div class="jumbotron students">
+	<div class="container-fluid">
+		
+		<div class="div-estudiantes">
+
+			<i class="fas fa-graduation-cap"></i><br>
+			<a href="#miModal" data-toggle="modal" data-target="#miModal" class="divs-anchors">Pregrado</a>
+
+		</div>
+		<div class="div-estudiantes">
+			<i class="fas fa-graduation-cap"></i><br>
+			<a href="" class="divs-anchors">Postgrado</a>
+		</div>
+		<div class="div-estudiantes">
+			<i class="fas fa-envelope" "></i>	<br>
+			<a href="" class="divs-anchors">Correo institucional</a>
+		</div>
+
+			
+
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="miModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img src="img/escudoUNAH.png" id="modal-imagen">
+        <h5 class="modal-title" id="miModalLabel">Estudiantes</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        	<form>
+        		<table>
+        			<tbody>
+		        		<tr>		
+				        	<td><label class="col-12">Cuenta:</td>
+				        	<td><input type="text" class="form-control" id="txt-cuenta-estudiante" placeholder="Ejemplo:20102004355"></label><br></td>
+			        	</tr>
+	        			<tr>
+	        				<td><label class="col-12">Contraseña:</td>
+	        				<td><input type="password" class="form-control" id="txt-contrasena-estudiante" placeholder="Ingresar contraseña"></label></td>
+	        			</tr>	
+	        	</tbody>
+	        	</table>
+        	</form>
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" id="ingresar-estudiantes" class="btn btn-primary">Ingresar</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/controladorEstudiantes.js"></script>
+</body>
+</html>

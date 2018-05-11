@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Administracion</title>
+	<meta charset="utf-8">	
+	<link rel="stylesheet" type="text/css" href="css/custom.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<script defer src="js/fontawesome-all.js" crossorigin="anonymous"></script>
+</head>
+<body >
+		<ul class="sidenav">
+			<li></li>	
+		  <li><a href="index.html">Inicio</a></li>
+		  <li><a href="#" class="active" id="crearEstudiantes">Ingresar Estudiantes</a></li>
+		  <li><a href="#" id="verEstudiantes">Estudiantes</a></li>
+		  <li><a href="#" id="crearEmpleados">Ingresar Empleados</a></li>
+		  <li><a href="#" id="verEmpleados">Empleados</a></li>
+		  
+		</ul>
+
+		<div class="content" id="div-datos-personales-estudiantes">
+			<form>				
+				<table class="table table-borderless">
+					<thead>
+					<h2 class="titulo-div-estudiantes">Datos Personales</h2>
+					</thead>
+					<tbody>
+					<tr>
+						<td>Nombre:</td>
+						<td><input type="text" class="form-control" name="txt-nombre" id="txt-nombre"></td>
+						<td></td>
+						<td>Apellido:</td>
+						<td><input type="text" class="form-control" name="txt-apellido" id="txt-apellido"></td>
+					</tr>
+				
+					<tr>
+						<td>Identidad:</td>
+						<td><input type="text" class="form-control" name="txt-identidad" id="txt-identidad" onkeyup="validarIdentidad(this);"></td>
+						<td></td>
+						<td>Lugar nacimiento:</td>
+						<td>
+							<select class="form-control" name="select-nacimiento" id="slc-nacimiento">
+								<option value="1">Cortes</option>
+								<option value="2">Francisco Morazan</option>
+								<option value="3">Lempira</option>
+								<option value="4">Copan</option>
+								<option value="5">La Paz</option>
+								<option value="6">Gracias a Dios</option>
+							</select>
+						</td>
+
+					</tr>
+					
+
+					<tr>
+						<td>Genero:</td>
+						<td><input type="radio" name="rbt-genero[]" id="rbt-mas">Masculino
+						<input type="radio"  name="rbt-genero[]" id="rbt-fem">Femenino
+						</td>
+						<td></td>
+						<td>Direccion:</td>
+						<td><textarea id="txta-direccion" name="txta-direccion" placeholder="Ingrese su direccion" class="form-control"></textarea></td>
+					</tr>
+					<tr>
+						
+					</tr>
+					<tr>
+						<td>Correo eletronico:</td>
+						<td><input type="text" name="txt-correo" id="txt-correo" class="form-control" onkeyup="validarCorreo(this);"></td>
+						<td></td>
+						<td>Campus:</td>
+						<td>
+							<select class="form-control" name="slc-campus" id="slc-campus">
+								<option value="1">UNAH-CU</option>
+								<option value="2">UNAH-VS</option>
+								<option value="3">UNAH-TEC AGUAN</option>
+								<option value="4">UNAH-CURC</option>
+								<option value="5">UNAH-CURLA</option>
+								<option value="6">UNAH-CURLP</option>
+								<option value="7">UNAH-CUROC</option>
+								<option value="8">UNAH-CURNO</option>
+								
+
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Fecha de Nacimiento:</td>
+						<td><input type="date" class="form-control" name="dt-fecha-nacimiento" id="dt-fecha-nacimiento"></td>
+						<td></td>
+						<td>Telefono:</td>
+						<td><input type="text" name="txt-telefono" id="txt-telefono" class="form-control"></td>
+					</tr>
+					
+					<tr>
+						<td>Tipo identificacion:</td>
+						<td>
+							<select class="form-control" name="slc-tipo-identificacion" id="slc-tipo-identificacion">
+								<option value="1">Licencia de conducir</option>
+								<option value="2">Cedula</option>
+							</select>
+						</td>
+						<td></td>
+						<td>Estado civil:</td>
+						<td>
+							<select class="form-control" name="slc-estado-civil" id="slc-estado-civil">
+								<option value="1">Soltero</option>
+								<option value="2">Casado</option>
+								<option value="3">Union libre</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Municipio de nacimiento:</td>
+						<td>
+							<select class="form-control" name="slc-municipio-nacimiento" id="slc-municipio-nacimiento">
+								<option value="1">Valle de angeles</option>
+								<option value="2">San ignacio</option>
+								<option value="3">Ojojona</option>
+								<option value="4">Villanueva</option>
+								
+							</select>
+						</td>
+						<td></td>
+						<td>Municipio residencia:</td>
+						<td>
+							<select class="form-control" name="slc-municipio-residencia" id="slc-municipio-residencia">
+								<option value="1">Valle de angeles</option>
+								<option value="2">San ignacio</option>
+								<option value="3">Ojojona</option>
+								<option value="4">Villanueva</option>
+								
+							</select>
+						</td>
+					</tr>
+						<tr>
+						<td>
+							<button type="button" class="btn btn-primary btn-ingresar-personas" id="btn-datos-Personales"  >Continuar</button>	
+						</td>
+					</tr>
+						</tbody>
+				</table>
+			</form>
+			</div>
+			
+			<div class="content" id="div-datos-estudiantes">
+					<h2 class="titulo-div-estudiantes">Datos Alumno</h2>
+				<form>	
+					<table>
+					<tr>
+						<td>Codigo Alumno:</td>
+						<td><input type="text" class="form-control" name="txt-codigo-alumno" id="txt-codigo-alumno"></td>
+						<td></td>
+						<td>Numero de cuenta:</td>
+						<td><input type="text" class="form-control" name="txt-cuenta" id="txt-cuenta"></td>
+						<td></td>
+						<td>Promedio:</td>
+						<td><input type="text" name="txt-promedio" class="form-control" id="txt-promedio"></td>
+					</tr>
+					
+					<tr>
+						<td>
+							<button type="button" class="btn btn-primary btn-ingresar-personas" id="btn-ingresar-estudiante" onclick="validarDatosAlumnos();">Ingresar estudiante</button>	
+						</td>
+					</tr>
+
+					</table>
+
+				</form>
+		</div>		
+
+		<!-- ____________________________________div empleados ___________________________________ -->
+
+			
+		<div class="content" id="div-datos-personales-empleados">
+			<form>				
+				<table class="table table-borderless">
+					<thead>
+					<h2 class="titulo-div-estudiantes">Datos Personales</h2>
+					</thead>
+					<tbody>
+					<tr>
+						<td>Nombre:</td>
+						<td><input type="text" class="form-control" name="txt-nombre-emp" id="txt-nombre-emp"></td>
+						<td></td>
+						<td>Apellido:</td>
+						<td><input type="text" class="form-control" name="txt-apellido-emp" id="txt-apellido-emp"></td>
+					</tr>
+				
+					<tr>
+						<td>Identidad:</td>
+						<td><input type="text" class="form-control" name="txt-identidad-emp" id="txt-identidad-emp" onkeyup="validarIdentidad(this);"></td>
+						<td></td>
+						<td>Lugar nacimiento:</td>
+						<td>
+							<select class="form-control" name="select-nacimiento-emp" id="slc-nacimiento-emp">
+								<option value="1">Cortes</option>
+								<option value="2">Francisco Morazan</option>
+								<option value="3">Lempira</option>
+								<option value="4">Copan</option>
+								<option value="5">La Paz</option>
+								<option value="6">Gracias a Dios</option>
+							</select>
+						</td>
+
+					</tr>
+					
+
+					<tr>
+						<td>Genero:</td>
+						<td><input type="radio" name="rbt-genero[]" id="rbt-mas-emp">Masculino
+						<input type="radio"  name="rbt-genero[]" id="rbt-fem-emp">Femenino
+						</td>
+						<td></td>
+						<td>Direccion:</td>
+						<td><textarea id="txta-direccion-emp" name="txta-direccion-emp" placeholder="Ingrese su direccion" class="form-control"></textarea></td>
+					</tr>
+					<tr>
+						
+					</tr>
+					<tr>
+						<td>Correo eletronico:</td>
+						<td><input type="text" name="txt-correo-emp" id="txt-correo-emp" class="form-control" onkeyup="validarCorreo(this);"></td>
+						<td></td>
+						<td>Campus:</td>
+						<td>
+							<select class="form-control" name="slc-campus-emp" id="slc-campus-emp">
+								<option value="1">UNAH-CU</option>
+								<option value="2">UNAH-VS</option>
+								<option value="3">UNAH-TEC AGUAN</option>
+								<option value="4">UNAH-CURC</option>
+								<option value="5">UNAH-CURLA</option>
+								<option value="6">UNAH-CURLP</option>
+								<option value="7">UNAH-CUROC</option>
+								<option value="8">UNAH-CURNO</option>
+								
+
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Fecha de Nacimiento:</td>
+						<td><input type="date" class="form-control" name="dt-fecha-nacimiento-emp" id="dt-fecha-nacimiento-emp"></td>
+						<td></td>
+						<td>Telefono:</td>
+						<td><input type="text" name="txt-telefono-emp" id="txt-telefono-emp" class="form-control"></td>
+					</tr>
+					
+					<tr>
+						<td>Tipo identificacion:</td>
+						<td>
+							<select class="form-control" name="slc-tipo-identificacion-emp" id="slc-tipo-identificacion-emp">
+								<option value="1">Licencia de conducir</option>
+								<option value="2">Cedula</option>
+							</select>
+						</td>
+						<td></td>
+						<td>Estado civil:</td>
+						<td>
+							<select class="form-control" name="slc-estado-civil-emp" id="slc-estado-civil-emp">
+								<option value="1">Soltero</option>
+								<option value="2">Casado</option>
+								<option value="3">Union libre</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Municipio de nacimiento:</td>
+						<td>
+							<select class="form-control" name="slc-municipio-nacimiento-emp" id="slc-municipio-nacimiento-emp">
+								<option value="1">Valle de angeles</option>
+								<option value="2">San ignacio</option>
+								<option value="3">Ojojona</option>
+								<option value="4">Villanueva</option>
+								
+							</select>
+						</td>
+						<td></td>
+						<td>Municipio residencia:</td>
+						<td>
+							<select class="form-control" name="slc-municipio-residencia-emp" id="slc-municipio-residencia-emp">
+								<option value="1">Valle de angeles</option>
+								<option value="2">San ignacio</option>
+								<option value="3">Ojojona</option>
+								<option value="4">Villanueva</option>
+								
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<br>
+						<td>
+							
+							<button type="button" class="btn btn-primary" id="btn-datos-personales-empleados">Continuar</button>
+						</td>	
+					</tr>
+						</tbody>
+				</table>
+			</form>
+		</div>
+
+				
+		<div class="content" id="div-datos-empleados">
+			<h2 class="titulo-div-estudiantes">Datos Empleado</h2>
+			
+			<form>
+			<table class="table table-borderless">
+				
+					<tr>
+						<td>Numero de empleado:</td>
+						<td><input type="text" name="txt-numero-empleado" id="txt-numero-empleado" class="form-control"></td>
+						<td></td>
+						<td>Sueldo base:</td>
+						<td><input type="text" name="txt-sueldo-base" id="txt-sueldo-base" class="form-control"></td>
+					</tr>
+					<tr>
+						<td>Tipo de empleado:</td>
+						<td>
+							<select class="form-control">
+								<option value="1">Administrativo</option>
+								<option value="2">Docente</option>
+								<option value="4">Personal de aseo</option>
+							</select>
+						</td>
+						<td></td>
+						<td>Cargo:</td>
+						<td>
+							<select class="form-control">
+								<option value="1">Gerente</option>
+								<option value="2">Supervisor</option>
+								<option value="3">Catedratico</option>
+								<option value="4">Instructor</option>
+								
+							</select>
+						</td>
+					</tr>
+			
+				<tr>
+					<br>
+				<td>
+					<button class="btn btn-primary btn-ingresar-personas">Ingresar empleado</button>	
+				</td>	
+				</tr>
+					
+				
+			</table>
+
+					
+
+			</form>
+			
+		</div>	
+		  		
+		
+
+<!--_______________________________________________div ver empleados____________________________________ -->
+		<div class="content" id="div-ver-estudiantes">
+			<table class="table table-hover">
+				<thead>
+					<th>Estudiante</th>
+					<th>Apellido</th>
+					<th>Cuenta</th>
+					<th>Promedio</th>
+					<th>Identidad</th>
+					<th>Lugar Residencia</th>
+					<th>Lugar Nacimiento</th>
+					<th>Correo Electronico</th>
+				</thead>
+					
+				
+			</table>
+			
+		</div>
+
+
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/controladorPrincipalAdministracion.js"></script>
+</body>
+</html>
