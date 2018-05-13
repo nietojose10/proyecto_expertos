@@ -9,7 +9,10 @@
 	<!--<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
    <script defer src="js/fontawesome-all.js" crossorigin="anonymous"></script>-->
    <link href="css/web-fonts-with-css/css/fontawesome-all.css" rel="stylesheet">
-  <!-- Custom styles for this template-->
+  
+     <!--Links de los datatables -->
+<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/> 
+<link rel="stylesheet" type="text/css" href="DataTables/css/dataTables.bootstrap4.min.css">
   	
 	<!--<script defer src="js/fontawesome-all.js" crossorigin="anonymous"></script>-->
 </head>
@@ -17,8 +20,6 @@
 
 	 <nav class="navbar navbar-expand-lg navbar-dark bg-darks fixed-top" id="adminNav">
     <a class="navbar-brand" href="index.html"><img src="img/escudoUNAH.png" id="logo-escudo">UNAH</a>
-	<a class="navbar-brand titulo-bienvenido" id="enlace-bienvenida" href="index.html"></a>
-
 
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -26,14 +27,14 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="EstudiantesPrincipal.html">
             <i class="fas fa-home"></i>
             <span class="nav-link-text">Inicio</span>
           </a>
         </li>
 
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link" href="HistorialAcademico.html">
+          <a class="nav-link" href="#">
             <i class="fas fa-table"></i>
             <span class="nav-link-text">Historial academico</span>
           </a>
@@ -42,6 +43,7 @@
         
         <li class="nav-item" data-toggle="tooltip" data-placement="right" id="listaEstudiantes" >
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion" id="anchorFlecha">
+            
             <i class="fas fa-book"></i>
             <span class="nav-link-text">Matricula</span>
            <span class="arrowRight"><i class="fas fa-angle-right"></i></span>
@@ -60,7 +62,7 @@
             
           </ul>
         </li>
-    
+     
         
          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="#">
@@ -100,7 +102,7 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" data-target="#exampleModal" id="ventanaOpciones">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
             <i class="fas fa-user-circle"></i></a>
         </li>
       </ul>
@@ -110,11 +112,24 @@
     <div class="container-fluid">
       
       <div class="row">
-        <div class="col-12">
-       
-         
+
+        <div id="div-historial-academico" class="col-12 table-responsive">
+        <h2>Historial Academico</h2>
+          <br>
+          
+           
+            
+          </div>
+          <div class="btn-group grupo-botones" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-primary">Historial Academico</button>
+            <button type="button" class="btn btn-primary">Recorrido Academico</button>
+            <button type="button" class="btn btn-primary">Simulador de Periodos</button>
+            <button type="button" class="btn btn-primary">Seguimiento de calificaciones</button>
+          </div>
         </div>
-      </div>
+     
+
+    </div>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
@@ -149,8 +164,9 @@
     </div>
     <script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/controladorEstudiantesPrincipal.js"></script>
+	<script src="js/controladorHistorialAcademico.js"></script>
 	<!--Extras -->
+    <script type="text/javascript" src="DataTables/datatables.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="js/sb-admin.min.js"></script>

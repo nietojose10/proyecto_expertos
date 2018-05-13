@@ -61,8 +61,8 @@ h2 > a:hover{
 	border-style:solid;
     border-width:5px;  
     border-color:rgba(243, 164, 7, 0.5);
-	width: 500px
-	height: 500px;
+	max-width: 18rem;
+	max-height: 18rem;
 	padding: 10px 5px 10px 5px;
 	margin: 20px 20px 20px 100px;
 	
@@ -127,6 +127,71 @@ h2 > a:hover{
 	height: 10%;
 	width: 10%;
 	
+}
+.card-estudiantes{
+ 
+
+
+}
+
+/* EstudiantesPrincipal*/
+
+#logo-escudo{
+  height: 10%;
+  width: 10%;
+}
+
+.fondo-lucem{
+  background-image: url("../img/fondoModal.jpg")!important;
+  background-repeat: no-repeat!important;
+  background-size: cover!important;
+  
+  background-attachment: fixed!important;
+  background-color: rgba(0,0,0,0.3);
+}
+
+
+
+.fa-user-circle{
+
+  font-size: 2em!important;
+
+}
+
+.titulo-bienvenido{
+  font-size: 0.8em!important;
+}
+
+.nombre-alumno{
+  font-size: 0.3em!important;
+}
+
+
+/* Historial Academico */
+
+.card-header{
+  background-color: #e9ecef!important;
+}
+
+.grupo-botones{
+  padding-top: 20%!important;
+  padding-left: 15%!important;
+}
+
+.btn-group > .btn:hover{
+  background-color: #ff8000!important;
+  border-color:  #ff8000!important;
+
+}
+
+ /* Matricula */
+
+.modificar-list{
+  max-width: 33.33%!important;
+}
+
+.titulo-asignaturas-matriculadas{
+  padding-top: 10%!important;
 }
 
 
@@ -204,10 +269,6 @@ div.content {
 	box-shadow: 5px 5px 5px grey;
 }
 
-.body-loginAdmin{
-
-	background-color: #AFAFB3;
-}
 
 .titulo-inicio-admin{
 	margin-left: 30%;
@@ -226,6 +287,18 @@ div.content {
 
 }
 
+.fondo-concierto{
+  background-image: url("../img/conciertoUnah.jpg")!important;
+  background-repeat: no-repeat!important;
+  background-size: cover!important;
+  
+  background-attachment: fixed!important;
+  background-color: rgba(0,0,0,0.3);
+}
+
+.jumbotron-login-admin{
+  background-color: rgba(0,123,255,.25)!important;
+}
 
 
 /*principalAdministracion */

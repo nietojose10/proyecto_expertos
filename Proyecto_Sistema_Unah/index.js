@@ -313,12 +313,135 @@ app.post("/guardar-persona-empleado", function(peticion, respuesta){
 });
 
 
+//Enviando el nombre del alumno
+app.post("/nombre-alumno", function(peticion, respuesta){
+	conexion.query("SELECT CODIGO_PERSONA, "+
+					"NOMBRE, "+
+			        "APELLIDO "+
+			        "FROM tbl_personas A "+
+			        "INNER JOIN tbl_alumnos B "+
+			        "ON(A.CODIGO_PERSONA=B.CODIGO_ALUMNO) "+
+			        "WHERE B.CODIGO_ALUMNO=?;",
+			        [
+			        	peticion.cookies.codigoAlumno
+			        ]
+			    ,function(error, data, campos){
+			    	if (error) throw error;
+			    	respuesta.send(data);
+
+			    });
+			});
+
+//Historial academico
+
+app.get("/historial-academico", function(peticion, respuesta){
+	conexion.query("SELECT CODIGO__HISTORIAL, "+
+			        "d.CODIGO_ALTERNO ALIAS_ASIGNATURA, "+
+			        "D.NOMBRE_ASIGNATURA, "+
+			        "PROMEDIO, "+
+			        "D.CANTIDAD_UNIDADES_VALORATIVAS, "+
+			        "C.CODIGO_ALTERNO, "+
+			        "E.NOMBRE_PERIODO "+
+			        "FROM tbl_historial A "+
+			        "INNER JOIN tbl_personas B "+
+			        "ON(A.CODIGO_ALUMNO=B.CODIGO_PERSONA) "+
+			        "INNER JOIN tbl_seccion C "+
+			        "ON(A.CODIGO_SECCION=C.CODIGO_SECCION) "+
+			        "INNER JOIN tbl_asignaturas D "+
+			        "ON(C.CODIGO_ASIGNATURA=D.CODIGO_ASIGNATURA) "+
+			        "INNER JOIN tbl_periodos E "+
+			        "ON(A.CODIGO_PERIODO=E.CODIGO_PERIODO) "+
+			        "WHERE A.CODIGO_ALUMNO=?",		
+			        [
+			        	peticion.cookies.codigoAlumno
+			        ] 
+		,function(error, informacion, campos){
+			if (error) throw error;
+			respuesta.send(informacion);
+
+	});
+});
 
 
+app.get("/obtener-asignaturas", function(peticion, respuesta){
+	conexion.query("SELECT CODIGO_ASIGNATURA, "+
+					"NOMBRE_ASIGNATURA "+
+					"FROM tbl_asignaturas "
+				,function(error, data, campos){
+					if (error) throw error;
+					respuesta.send(data);
 
 
+	});
+});
+
+app.get("/obtener-secciones", function(peticion, respuesta){
+	conexion.query("SELECT CODIGO_SECCION, "+
+			        "A.CODIGO_ASIGNATURA, "+
+			        "A.CODIGO_ALTERNO, "+
+			        "CANTIDAD_CUPOS, "+
+			        "CODIGO_EMPLEADO_MAESTRO, "+
+			        "C.NOMBRE, "+
+			        "C.APELLIDO "+
+			        "FROM tbl_seccion A "+ 
+			        "INNER JOIN tbl_asignaturas B "+
+			        "ON(A.CODIGO_ASIGNATURA=B.CODIGO_ASIGNATURA) "+
+			        "INNER JOIN tbl_personas C "+
+			        "ON(A.CODIGO_EMPLEADO_MAESTRO=C.CODIGO_PERSONA)", 
+		function(error, data, campos){
+
+			respuesta.send(data);
+
+	});
+});
+
+
+app.post("/tabla-clases-matriculadas", function(peticion, respuesta){
+	conexion.query("SELECT A.CODIGO_SECCION, "+
+			        "C.CODIGO_ALTERNO CODIGO_CLASE, "+
+			        "C.NOMBRE_ASIGNATURA, "+
+			        "C.CANTIDAD_UNIDADES_VALORATIVAS, "+
+			        "B.CODIGO_ALTERNO SECCION_CODIGO, "+
+			        "B.DIAS, "+
+			        "D.NOMBRE_ESTADO "+
+			        "FROM tbl_matricula A "+
+			        "INNER JOIN TBL_SECCION B "+
+			        "ON(A.CODIGO_SECCION=B.CODIGO_SECCION) "+
+			        "INNER JOIN tbl_asignaturas C "+
+			        "ON(B.CODIGO_ASIGNATURA=C.CODIGO_ASIGNATURA) "+
+			        "INNER JOIN tbl_estados_matricula D "+
+			        "ON(A.CODIGO_ESTADO_MATRICULA=D.CODIGO_ESTADO_MATRICULA) "+
+			        "WHERE A.CODIGO_ALUMNO=?",
+			        [
+			        	peticion.cookies.codigoAlumno
+			        ] 
+		,function(error, data, campos){
+			if (error) throw error;
+			respuesta.send(data);
+
+	});
+});
+
+
+app.post("/matricular-clases", function(peticion, respuesta){
+	conexion.query("INSERT INTO tbl_matricula(CODIGO_ALUMNO, "+
+						"CODIGO_SECCION, "+
+						"CODIGO_ESTADO_MATRICULA, "+
+						"FECHA_MATRICULA) "+
+					"VALUES (?,?,?,sysdate())",
+					[
+						peticion.cookies.codigoAlumno,
+						peticion.body.codigoSeccion,
+						peticion.body.codigoEstadoMatricula
+
+					]
+		,function(error, data, campos){
+			if (error) throw error;
+			respuesta.send(data);
+
+
+	});
+});
 
 app.listen(3000);
-
-
 

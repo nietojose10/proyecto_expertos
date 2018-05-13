@@ -206,7 +206,7 @@ $("#btn-datos-personales-empleados").click(function(){
 	}
 	console.log("El valor de valido2 es:"+valido2);
 	if(valido2==14){
-		alert('cambiar de div');
+		//alert('cambiar de div');
 		guardarPersonaEmpleado();
 		$("#div-datos-empleados").show();
 		$("#div-datos-personales-empleados").hide();
@@ -370,7 +370,7 @@ function validarDatosEmpleados(){
 		console.log('Ha enviado los datos con exito');
 		console.log(valido4);
 
-		alert('Enviando Datos...');
+		//alert('Enviando Datos...');
 
 		var parametros =
 			"codigo="+ $("#txt-codigo-empleado").val()+"&"+
